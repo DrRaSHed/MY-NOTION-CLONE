@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f6f3;
+  --bg-hover: #efefef;
+  --text-primary: #37352f;
+  --text-secondary: #6b6b6b;
+  --border-color: #e9e9e7;
+  --accent-color: #2eaadc;
+}
+
+.dark {
+  --bg-primary: #191919;
+  --bg-secondary: #202020;
+  --bg-hover: #2f2f2f;
+  --text-primary: #ffffff;
+  --text-secondary: #9b9b9b;
+  --border-color: #373737;
+  --accent-color: #2eaadc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background-color: rgba(46, 170, 220, 0.3);
+}
+
+/* Editor styles */
+.editor-content {
+  outline: none;
+  min-height: 200px;
+}
+
+.editor-content:focus {
+  outline: none;
+}
+
+.block {
+  @apply relative py-1 px-2 rounded cursor-text;
+}
+
+.block:hover {
+  @apply bg-opacity-50;
+}
+
+.block-handle {
+  @apply absolute left-0 opacity-0 transition-opacity;
+}
+
+.block:hover .block-handle {
+  @apply opacity-100;
+}
+
+/* Text formatting */
+.text-bold {
+  @apply font-bold;
+}
+
+.text-italic {
+  @apply italic;
+}
+
+.text-underline {
+  @apply underline;
+}
+
+.text-code {
+  @apply bg-gray-200 dark:bg-gray-700 px-1 rounded font-mono text-sm;
+}
+
+/* Slash menu */
+.slash-menu {
+  @apply absolute z-50 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700;
+  min-width: 280px;
+}
+
+.slash-menu-item {
+  @apply flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 rounded;
+}
+
+/* Page list */
+.page-item {
+  @apply flex items-center gap-2 px-3 py-1.5 rounded cursor-pointer text-sm hover:bg-gray-100 dark:hover:bg-gray-700;
+}
+
+.page-item.active {
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+/* Database styles */
+.db-cell {
+  @apply border-b border-r border-gray-200 dark:border-gray-700 px-3 py-2;
+}
+
+.db-header {
+  @apply bg-gray-50 dark:bg-gray-800 font-medium text-sm;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
